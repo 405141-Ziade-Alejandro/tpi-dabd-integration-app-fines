@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
+import {Rules} from '../../domain/rules/rules';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,27 @@ export class ConfigurationPenaltiesService {
     return this.httpMethods.put<number>(environment.apis.moderations+`Configuration/appeal-days?daysToAppeal=${days}`,
       null,
       {headers: header});
+  }
+
+  getRules(): Observable<Rules> {
+    return this.httpMethods.get<Rules>(environment.apis.moderations + "/Configuration/rules")
+
+  }
+
+  putRules(rules: Rules, id: number): Observable<Rules> {
+    const header = new HttpHeaders({
+      'userId': id.toString(),
+      'Content-Type': 'application/json'
+    })
+
+    console.log("header created ", header)
+
+    return this.httpMethods.put<Rules>(
+      environment.apis.moderations + "/Configuration/rules",
+      rules,
+      {headers: header}
+    )
+
+
   }
 }

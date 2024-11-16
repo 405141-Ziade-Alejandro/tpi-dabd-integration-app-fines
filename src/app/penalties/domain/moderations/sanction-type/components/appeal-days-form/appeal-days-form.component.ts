@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { ConfigurationService } from '../../services/configuration.service';
+import {ConfigurationPenaltiesService} from '../../../../../shared/services/configuration-penalties.service';
 
 @Component({
   selector: 'app-appeal-days-form',
@@ -20,7 +21,7 @@ export class AppealDaysFormComponent {
   //services
 
   private modalService = inject(NgbModal);
-  private configService = inject(ConfigurationService);
+  private configService = inject(ConfigurationPenaltiesService);
 
   //variables
   closeResult = '';

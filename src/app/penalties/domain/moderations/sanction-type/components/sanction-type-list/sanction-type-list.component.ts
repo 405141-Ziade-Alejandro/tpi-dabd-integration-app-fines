@@ -19,7 +19,7 @@ import {
   UserDataService,
   UserData,
 } from '../../../../../shared/services/user-data.service';
-import {AppealDaysFormComponent} from '../appeal-days-form/appeal-days-form.component';
+import { AppealDaysFormComponent } from '../appeal-days-form/appeal-days-form.component';
 
 @Component({
   selector: 'app-sanction-type-list',
